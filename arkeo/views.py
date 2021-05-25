@@ -1,22 +1,21 @@
-from rest_framework import status
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
 from .models import Test
 from .serializers import TestSerializer
-import config
+from django.http import Http404
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
 
 
-@api_view(['GET', 'POST'])
-def test_list(request):
+class TestList(APIView):
     """
-    List all code snippets, or create a new snippet.
+    List all snippets, or create a new snippet.
     """
-    if request.method == 'GET':
-        snippets = Test.objects.all()
-        serializer = TestSerializer(snippets, many=True)
+    def get(self, request, format=None):
+        tests = Test.objects.all()
+        serializer = TestSerializer(tests, many=True)
         return Response(serializer.data)
 
-    elif request.method == 'POST':
+    def post(self, request, format=None):
         serializer = TestSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -24,27 +23,30 @@ def test_list(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['GET', 'PUT', 'DELETE'])
-def test_detail(request, pk):
+class TestDetail(APIView):
     """
-    Retrieve, update or delete a code snippet.
+    Retrieve, update or delete a test instance.
     """
-    try:
-        snippet = Test.objects.get(pk=pk)
-    except Test.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
+    def get_object(self, pk):
+        try:
+            return Test.objects.get(pk=pk)
+        except Test.DoesNotExist:
+            raise Http404
 
-    if request.method == 'GET':
-        serializer = TestSerializer(snippet)
+    def get(self, request, pk, format=None):
+        test = self.get_object(pk)
+        serializer = TestSerializer(test)
         return Response(serializer.data)
 
-    elif request.method == 'PUT':
-        serializer = TestSerializer(snippet, data=request.data)
+    def put(self, request, pk, format=None):
+        test = self.get_object(pk)
+        serializer = TestSerializer(test, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    elif request.method == 'DELETE':
-        snippet.delete()
+    def delete(self, request, pk, format=None):
+        test = self.get_object(pk)
+        test.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
