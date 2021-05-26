@@ -40,8 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    # 'arkeo'
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -81,7 +80,7 @@ WSGI_APPLICATION = 'apiapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'arkeo_api',
+        'NAME': 'api_arkeo',
         'USER': 'postgres',
         'PASSWORD': '557878ars',
         'HOST': '127.0.0.1',
