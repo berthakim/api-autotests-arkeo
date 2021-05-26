@@ -1,16 +1,3 @@
-# from .models import MeteoStation
-# from .serializers import MeteoStationSerializer
-# from django.http import Http404
-# from rest_framework.views import APIView
-# from rest_framework.response import Response
-# from rest_framework import status
-
-# from django.http import HttpResponse, JsonResponse
-# from django.views.decorators.csrf import csrf_exempt
-# from rest_framework.parsers import JSONParser
-# from snippets.models import Snippet
-# from snippets.serializers import SnippetSerializer
-
 from arkeo.models import MeteoStation
 from django.contrib.auth.models import User
 from arkeo.serializers import MeteoStationSerializer, UserSerializer
@@ -25,6 +12,7 @@ class MeteoStationList(APIView):
     """
     List all MeteoStations, or create a new Meteo Station.
     """
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get(self, request, format=None):
         stations = MeteoStation.objects.all()
@@ -42,13 +30,13 @@ class MeteoStationList(APIView):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
 class MeteoStationDetail(APIView):
     """
     Retrieve, update or delete a station instance.
     """
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
     def get_object(self, pk):
         try:
@@ -73,8 +61,6 @@ class MeteoStationDetail(APIView):
         station = self.get_object(pk)
         station.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
 
 class UserList(generics.ListAPIView):

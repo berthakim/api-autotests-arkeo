@@ -1,21 +1,20 @@
 from rest_framework import serializers
-from arkeo.models import MeteoStation, LANGUAGE_CHOICES, STYLE_CHOICES
+from arkeo.models import MeteoStation, STATION_TYPES
 from django.contrib.auth.models import User
 
 
 class MeteoStationSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(required=False, allow_blank=True, max_length=100)
-    code = serializers.CharField(style={'base_template': 'textarea.html'})
-    linenos = serializers.BooleanField(required=False)
-    language = serializers.ChoiceField(choices=LANGUAGE_CHOICES, default='python')
-    style = serializers.ChoiceField(choices=STYLE_CHOICES, default='friendly')
+    lat = serializers.FloatField()
+    lon = serializers.FloatField()
+    start = serializers.IntegerField()
+    st_type = serializers.ChoiceField(choices=STATION_TYPES, default="Not defined")
     owner = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:
         model = MeteoStation
-        fields = ['id', 'name', 'code', 'linenos', 'language', 'style', 'owner']
-        # fields = "__all__"
+        fields = ['id', 'name', 'lat', 'lon', 'start', 'st_type']
 
     def create(self, validated_data):
         """
@@ -28,10 +27,10 @@ class MeteoStationSerializer(serializers.Serializer):
         Update and return an existing `MeteoStation` instance, given the validated data.
         """
         instance.name = validated_data.get('name', instance.name)
-        instance.code = validated_data.get('code', instance.code)
-        instance.linenos = validated_data.get('linenos', instance.linenos)
-        instance.language = validated_data.get('language', instance.language)
-        instance.style = validated_data.get('style', instance.style)
+        instance.lat = validated_data.get('lat', instance.lat)
+        instance.lon = validated_data.get('lon', instance.lon)
+        instance.start = validated_data.get('start', instance.start)
+        instance.st_type = validated_data.get('st_type', instance.st_type)
         instance.save()
         return instance
 
