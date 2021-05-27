@@ -13,7 +13,7 @@ class MeteoStation(models.Model):
     lon = models.FloatField()
     start = models.IntegerField()
     st_type = models.CharField(choices=STATION_TYPES, default="Not defined", max_length=100)
-    owner = models.ForeignKey('auth.User', related_name='stations', on_delete=models.CASCADE)
+    owner = models.ForeignKey('auth.User', related_name='stations', default="1", on_delete=models.CASCADE)
 
     class Meta:
         ordering = ['name']
