@@ -8,7 +8,7 @@ urlpatterns = [
     path('stations/', views.MeteoStationList.as_view()),
     path('stations/<int:pk>/', views.MeteoStationDetail.as_view()),
     path('users/', views.UserList.as_view()),
-    path('users/<int:pk>/', views.UserDetail.as_view()),
+    path('users/<int:pk>/', views.UserDetail.as_view())
 ]
 
 if settings.DEBUG:
