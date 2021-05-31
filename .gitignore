@@ -129,4 +129,7 @@ dmypy.json
 .pyre/
 
 # Django's Secret Key in settings.py
-config.py
+config_settings.py
+
+# Api Meteo App tests: user password
+config_test.py

@@ -10,13 +10,23 @@ In order to connect to the OWM API:
 2. in the config.py file write the variable <secret_key_settings> and assign to it your SECRET_KEY:
     ```secret_key_settings = "your-secret-key-for-django-settings"```
 
-To start an API application: in terminal (or cmd) place in "API_meteo" folder and run the django app:
-```python manage.py runserver```
+
+How to launch the tests:
+
+1. If you launch the app in your local machine:
+2. If you use the web link
+
+1. This API application was deployed on Heroku server, so You may view it by opening the following link:
+> 
+2. or You can launch this app locally in your machine. In order to start an app You may type the following:
+    ```python manage.py runserver```
+    (In terminal (or cmd), from "API_meteo" folder)
+
 
 To launch autotests type in the same directory:
-```pytest test_api_basic.py```  // to basic tests (connection, requests. data types)
-```pytest test_api_performance.py```  // performance tests
-```python test_api_e2e.py```  // end-to-end test-case
+    ```pytest test_api_basic.py```  // to basic tests (connection, requests. data types)
+    ```pytest test_api_performance.py```  // performance tests
+    ```python test_api_e2e.py```  // end-to-end test-case
 
 #### Structure of this project:
 
@@ -27,3 +37,10 @@ To launch autotests type in the same directory:
 
 This API app is based on Django REST Framework tutorial:
 https://www.django-rest-framework.org/tutorial/quickstart/
+
+Meteo Stations' data source:
+https://en.vedur.is/weather/stations/?t=1
+
+Bibliography for tests:
+https://peter-jp-xie.medium.com/scale-up-rest-api-functional-tests-to-performance-tests-in-python-3239859c0e27
+
