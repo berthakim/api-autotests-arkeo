@@ -1,1 +1,18 @@
-bientôt
+--------------- Draft ---------------------
+
+Functional tests
+
+Create a station with every field: POST request to /stations/
+Create a station with only required fields: POST request to /stations/
+Create a station with missing required fields: POST request to /stations/
+View issues on a project: GET request to /stations/
+View issues on a project with one filter: GET request to /stations/
+View issues on a project with multiple filters: GET request to /stations/
+Update one field on a station: PUT request to /stations/
+Update multiple fields on a station: PUT request to /stations/
+Update a station with missing _id: PUT request to /stations/
+Update a station with no fields to update: PUT request to /stations/
+Update a station with an invalid _id: PUT request to /stations/
+Delete a station: DELETE request to /stations/
+Delete a station with an invalid _id: DELETE request to /stations/
+Delete a station with missing _id: DELETE request to /stations/
