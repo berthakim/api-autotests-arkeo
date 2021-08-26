@@ -133,3 +133,7 @@ config_settings.py
 
 # Api Meteo App tests: user password
 config_test.py
+
+# draft-files
+draft.py
+croquis.py
