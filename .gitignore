@@ -132,7 +132,7 @@ dmypy.json
 config_settings.py
 
 # Api Meteo App tests: user password
-config_test.py
+# config_test.py
 
 # draft-files
 draft.py
