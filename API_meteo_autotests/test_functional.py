@@ -20,7 +20,7 @@ class TestApiMeteoGet:
     response = requests.get(url)
 
     # View one station: GET request to /stations/
-    def test_should_response_to_get_request(self):
+    def test_should_successfully_response_to_a_get_request(self):
         assert self.response.status_code == 200, \
             f"Connection not succeded with code {response.status_code}"
 
@@ -169,7 +169,7 @@ class TestApiMeteoPut:
 
     # Update a station with an invalid _id: PUT request to /station/
     def test_should_return_404_due_to_an_invalid_id(self):
-        url_put = "http://127.0.0.1:8000/stations/101/"
+        url_put = "http://127.0.0.1:8000/stations/1001/"
         data = {"id":44,
                 "name": "Bon Jovi 2",
                 "lat": 58.3850934289, "lon": 4.2358093,
@@ -177,8 +177,8 @@ class TestApiMeteoPut:
                 "st_type": "Virtual station",
                 "owner": "berthakim"}
         response = requests.put(url_put, data, auth = HTTPBasicAuth('berthakim', ct.api_password))
-        assert response.status_code == 404, f"Put request should return code 404. \
-            But {response_body.status_code} was given"
+        assert response.status_code == 404, f"Put request should return code 404 "\
+            f"but {response.status_code} was given"
 
 
 
@@ -239,3 +239,16 @@ class TestApiMeteoDelete:
             f"Failed to delete a station with missing 'name'. Code: {response.status_code}"
 
 
+# TODO: je dois supprimer les enrigestrements faites pour tester
+# la fonctionnalité de post request.
+
+
+class TestApiMeteoNotAllowedRequests:
+        
+    url = "http://127.0.0.1:8000/stations/"
+
+    def test_should_return_405_because_patch_is_not_allowed(self):
+        response = requests.patch(self.url, auth = HTTPBasicAuth('berthakim', ct.api_password))
+        assert response.status_code == 405, \
+            "Request with a non-allowed method doesn't return a response\
+             with a status code 405 (method not allowed), but should"
