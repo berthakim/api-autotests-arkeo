@@ -16,7 +16,7 @@ class MeteoStation(models.Model):
     owner = models.ForeignKey('auth.User', related_name='stations', default="1", on_delete=models.CASCADE)
 
     class Meta:
-        ordering = ['name']
+        ordering = ['-id']
 
     def __str__(self):
         return self.name 
