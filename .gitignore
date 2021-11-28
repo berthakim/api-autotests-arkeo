@@ -137,3 +137,9 @@ config_settings.py
 # draft-files
 draft.py
 croquis.py
+
+# PyCharm's folder
+.idea
+
+# virtual environment
+venv
