@@ -8,6 +8,11 @@ from rest_framework.response import Response
 from rest_framework import status, permissions, generics
 
 
+class MeteoStationMai(APIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+
+
+
 class MeteoStationList(APIView):
     """
     List all MeteoStations, or create a new Meteo Station.
@@ -29,7 +34,6 @@ class MeteoStationList(APIView):
     # associating stations with Users
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
-
 
 
 class MeteoStationDetail(APIView):
