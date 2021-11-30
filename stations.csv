@@ -1,0 +1,11 @@
+id;name;region;st_type;lat;lon;obs_beginning;owner
+1;Akrafjall;Faxaflói;Automated observational station;64.3105;21.966;2009;1
+2;Arnarnesvegur;Faxaflói;Automated observational station;64.0888;21.8366;2016;1
+3;Austurárdalsháls;North West;Automated observational station;65.123;20.6961;2009;1
+4;Árnes;South;Automated observational station;64.0405;20.2521;2003;1
+5;Bíldudalur;West fjords;Automated observational station;65.6794;23.6122;1998;1
+6;Borgarhöfn;South East;Automated observational station;64.1848;15.8145;2019;1
+7;Bræðratunguvegur;South;Automated observational station;64.1575;20.3675;2012;1
+8;Dreki;Central;Virtual station;65.042;16.595;2014;1
+9;Eldhraun;South East;Automated observational station;63.7338;18.1977;2014;1
+10;Fagradalsfjall;South;Automated observational station;63.8937;22.2854;2021;1
