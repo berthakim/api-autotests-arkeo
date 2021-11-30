@@ -6,11 +6,17 @@ from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, permissions, generics
+from rest_framework.response import Response
+from rest_framework.renderers import TemplateHTMLRenderer
 
 
-class MeteoStationMai(APIView):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+class MeteoStationMain(APIView):
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = 'meteo.html'
 
+    def get(self, request):
+        queryset = MeteoStation.objects.all()
+        return Response({'profiles': queryset})
 
 
 class MeteoStationList(APIView):
