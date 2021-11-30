@@ -5,7 +5,7 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path('/', views.MeteoStationMain.as_view()),
+    path('', views.MeteoStationMain.as_view()),
     path('stations/', views.MeteoStationList.as_view()),
     path('stations/<int:pk>/', views.MeteoStationDetail.as_view()),
     path('users/', views.UserList.as_view()),
