@@ -7,12 +7,12 @@ STATION_TYPES = [(i, i) for i in station_list]
 
 
 class MeteoStation(models.Model):
-    created = models.DateTimeField(auto_now_add=True)
-    name = models.CharField(max_length=100, blank=True, default='')
+    name = models.CharField(max_length=100, blank=True)
+    region = models.CharField(max_length=50)
+    st_type = models.CharField(choices=STATION_TYPES, default="Not defined", max_length=100)
     lat = models.FloatField()
     lon = models.FloatField()
-    start = models.IntegerField()
-    st_type = models.CharField(choices=STATION_TYPES, default="Not defined", max_length=100)
+    obs_beginning = models.IntegerField()
     owner = models.ForeignKey('auth.User', related_name='stations', default="1", on_delete=models.CASCADE)
 
     class Meta:
