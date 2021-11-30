@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'apiapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'arkeo',
+        'NAME': 'meteo',
         'USER': 'postgres',
         'PASSWORD': DB_PASSWORD,
         'HOST': '127.0.0.1',
