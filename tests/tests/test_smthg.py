@@ -64,7 +64,7 @@ class TestApiMeteoPost:
                 "lat": 50, "lon": 50,
                 "start": 1900,
                 "st_type": "Manned synoptic station",
-                "owner": "berthakim"
+                "owner": "postgres"
                 }
 
         response = requests.post(self.url, data=data, auth=HTTPBasicAuth('berthakim', ct.api_password))
