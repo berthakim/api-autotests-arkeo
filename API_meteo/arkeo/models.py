@@ -23,5 +23,3 @@ class MeteoStation(models.Model):
 
     def save(self, *args, **kwargs):
         super(MeteoStation, self).save(*args, **kwargs)
-
-# mete data from: https://en.vedur.is/weather/stations/?t=1

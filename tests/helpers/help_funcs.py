@@ -1,25 +1,13 @@
-from random import choice
-from string import ascii_uppercase as asciiup
-from faker import Faker
-from tests.integration_tests.clients.api_client import ApiClient
-
-fake = Faker()
+from tests.clients.api_client import ApiClient
 
 
 def create_station():
-    name_ = "".join(choice(asciiup) for _ in range(3))
-    city = fake.city()
-    data = f'{{"name": "{name_}", "location": "{city}"}}'
-    airport = ApiClient().post_airport(data).json()
-    return airport.get("id")
-
-
-def create_5_stations():
-    airports = list()
-    for i in range(5):
-        name_ = "".join(choice(asciiup) for _ in range(3))
-        city = fake.city()
-        data = f'{{"name": "{name_}", "location": "{city}"}}'
-        airport = ApiClient().post_airport(data).json()
-        airports.append(airport)
-    return airports
+    data = {
+        "name": "test station",
+        "region": "test region",
+        "st_type": "Manned synoptic station",
+        "lat": 0.0, "lon": 0.0,
+        "obs_beginning": 1900,
+    }
+    station = ApiClient().post_station(data).json()
+    return station
