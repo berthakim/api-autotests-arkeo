@@ -1,0 +1,24 @@
+version: "3"
+services:
+  db:
+    image: postgres:12.0
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: meteo
+      POSTGRES_PASS: postgres
+    volumes:
+      - pgdata:/var/lib/posgresql/data
+  web:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/meteo_api
+    command: bash -c "cd API_meteo && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    depends_on:
+      - db
+    env_file:
+      - ./.env.dev
+volumes:
+  pgdata:

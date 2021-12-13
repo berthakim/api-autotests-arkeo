@@ -1,8 +1,10 @@
 FROM python:3.8
 
-# The enviroment variable ensures that the python output is set straight
-# to the terminal with out buffering it first
+ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+
+# install psycopg2 dependencies
+# RUN apk update && apk add postgresql-dev gcc python3-dev musl-dev
 
 # create root directory for our project in the container
 RUN mkdir /meteo_api
@@ -11,7 +13,9 @@ RUN mkdir /meteo_api
 WORKDIR /meteo_api
 
 # Copy the current directory contents into the container at /meteo_api
-ADD . /music_service/
+ADD . /meteo_api/
 
 # Install any needed packages specified in requirements.txt
 RUN pip install -r requirements.txt
+
+COPY . .

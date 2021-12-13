@@ -1,6 +1,6 @@
 import requests
 
-from framework.settings import URL, HEADERS
+from tests.settings import URL, HEADERS
 
 
 class ApiClient:
