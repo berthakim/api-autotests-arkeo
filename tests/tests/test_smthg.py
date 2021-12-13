@@ -1,7 +1,8 @@
 import pytest
 import requests
 from requests.auth import HTTPBasicAuth
-import config_test as ct  # password
+from hamcrest import assert_that, equal_to, not_none
+from tests.clients.api_client import ApiClient
 
 # offline (if you launch the app in your local machine)
 url_local = "http://127.0.0.1:8000/stations/"
@@ -14,16 +15,18 @@ url = url_local
 
 # @pytest.mark.skip(reason="temporary delated")
 class TestApiMeteoGet:
-    url = "http://127.0.0.1:8000/stations"
-    response = requests.get(url)
 
+    def test_post_station(self):
+        data = {""}
     # View one station: GET request to /stations/
-    def test_should_successfully_response_to_a_get_request(self):
-        assert self.response.status_code == 200, \
+    def test_get_station_by_id(self):
+        response = requests.get(url)
+        assert response.status_code == 200, \
             f"Connection not succeded with code {response.status_code}"
 
-    def test_returned_type_of_content_should_be_json(self):
-        assert self.response.headers["Content-Type"] == "application/json", \
+    def test_type_of_content_should_be_json(self):
+        response = requests.get(url)
+        assert response.headers["Content-Type"] == "application/json", \
             "The response body is not in JSON format"
 
     def test_name_of_second_stations_should_be_akureyri(self):
