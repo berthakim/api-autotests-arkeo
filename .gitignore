@@ -144,6 +144,6 @@ croquis.py
 # virtual environment
 venv
 
-# temporary
+# temporary ignore the test docs
 tests/
 .test_docs/
