@@ -1,7 +1,7 @@
 import pytest
 from hamcrest import assert_that, equal_to, not_none
-from tests.clients.api_client import ApiClient
-from tests.helpers.help_funcs import create_station
+from framework.clients.api_client import ApiClient
+from framework.helpers.help_funcs import create_station
 
 
 class TestApiMeteoGet:

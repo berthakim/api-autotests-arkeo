@@ -1,4 +1,4 @@
-from tests.clients.api_client import ApiClient
+from framework.clients.api_client import ApiClient
 
 
 def create_station():

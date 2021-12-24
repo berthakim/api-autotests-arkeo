@@ -1,6 +1,6 @@
 import requests
 from requests.auth import HTTPBasicAuth
-from tests.settings import URL, HEADERS, USER, PASSWORD
+from framework.settings import URL, HEADERS, USER, PASSWORD
 
 
 class ApiClient:

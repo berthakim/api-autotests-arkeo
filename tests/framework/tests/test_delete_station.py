@@ -2,8 +2,8 @@ import pytest
 import allure
 from requests import HTTPError
 from hamcrest import assert_that, equal_to, empty, is_in
-from tests.clients.api_client import ApiClient
-from tests.helpers.help_funcs import create_station
+from framework.clients.api_client import ApiClient
+from framework.helpers.help_funcs import create_station
 
 
 class TestApiMeteoDelete:

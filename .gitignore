@@ -143,3 +143,7 @@ croquis.py
 
 # virtual environment
 venv
+
+# temporary
+tests/
+.test_docs/

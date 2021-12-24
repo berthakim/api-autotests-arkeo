@@ -2,7 +2,7 @@ import pytest
 import allure
 from requests import HTTPError
 from hamcrest import assert_that, equal_to, not_none
-from tests.clients.api_client import ApiClient
+from framework.clients.api_client import ApiClient
 
 
 class TestApiMeteoGet:
