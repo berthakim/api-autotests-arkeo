@@ -1,0 +1,46 @@
+************************************************************
+hey -n 500 -m GET -T csv http://127.0.0.1:8080/v1/airports/5
+************************************************************
+
+Summary:
+  Total:	2.0322 secs
+  Slowest:	0.5544 secs
+  Fastest:	0.0036 secs
+  Average:	0.1800 secs
+  Requests/sec:	246.0411
+  
+  Total data:	27500 bytes
+  Size/request:	55 bytes
+
+Response time histogram:
+  0.004 [1]	|
+  0.059 [54]	|■■■■■■■■■■■■■■■■■■■■■■■
+  0.114 [95]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.169 [94]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.224 [88]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.279 [73]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.334 [59]	|■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.389 [29]	|■■■■■■■■■■■■
+  0.444 [2]	|■
+  0.499 [4]	|■■
+  0.554 [1]	|
+
+
+Latency distribution:
+  10% in 0.0543 secs
+  25% in 0.0980 secs
+  50% in 0.1748 secs
+  75% in 0.2570 secs
+  90% in 0.3161 secs
+  95% in 0.3447 secs
+  99% in 0.4499 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0006 secs, 0.0036 secs, 0.5544 secs
+  DNS-lookup:	0.0000 secs, 0.0000 secs, 0.0000 secs
+  req write:	0.0002 secs, 0.0000 secs, 0.0067 secs
+  resp wait:	0.1790 secs, 0.0035 secs, 0.5543 secs
+  resp read:	0.0001 secs, 0.0000 secs, 0.0044 secs
+
+Status code distribution:
+  [200]	500 responses

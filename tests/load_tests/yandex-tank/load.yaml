@@ -1,0 +1,19 @@
+overload:
+  enabled: true
+  package: yandextank.plugins.DataUploader
+  token_file: "token.txt"
+phantom:
+  connection_test: false
+  address: 127.0.0.1:8080
+  uris:
+    - /v1/airports/1
+    - /v1/airports/3
+    - /v1/airports/5
+  load_profile:
+    load_type: rps
+    schedule: line(5, 30, 1m)
+  ssl: true
+console:
+  enabled: true # enable console output
+telegraf:
+  enabled: false

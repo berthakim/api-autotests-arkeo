@@ -1,0 +1,45 @@
+hey -m GET 'http://localhost:8080/v1/airports?cursor=1'
+
+Summary:
+  Total:        0.9982 secs
+  Slowest:      0.4777 secs
+  Fastest:      0.0057 secs
+  Average:      0.2084 secs
+  Requests/sec: 200.3684
+  
+  Total data:   3000 bytes
+  Size/request: 15 bytes
+
+Response time histogram:
+  0.006 [1]     |■
+  0.053 [19]    |■■■■■■■■■■■■■■■■■■■■■■
+  0.100 [34]    |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.147 [29]    |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.194 [23]    |■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.242 [17]    |■■■■■■■■■■■■■■■■■■■■
+  0.289 [10]    |■■■■■■■■■■■■
+  0.336 [23]    |■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.383 [24]    |■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.431 [10]    |■■■■■■■■■■■■
+  0.478 [10]    |■■■■■■■■■■■■
+
+
+Latency distribution:
+  10% in 0.0529 secs
+  25% in 0.0942 secs
+  50% in 0.1849 secs
+  75% in 0.3277 secs
+  90% in 0.3844 secs
+  95% in 0.4389 secs
+  99% in 0.4719 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:   0.0085 secs, 0.0057 secs, 0.4777 secs
+  DNS-lookup:   0.0088 secs, 0.0000 secs, 0.0416 secs
+  req write:    0.0001 secs, 0.0000 secs, 0.0056 secs
+  resp wait:    0.1988 secs, 0.0055 secs, 0.4514 secs
+  resp read:    0.0001 secs, 0.0000 secs, 0.0016 secs
+
+Status code distribution:
+  [200] 200 responses
+
